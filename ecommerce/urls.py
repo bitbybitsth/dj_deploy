@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import path, include
 
-def test_view(request, name):
-    return HttpResponse(f"Welcome <name>")
+def test_view(request):
+    return HttpResponse(f"Welcome")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('query/', include('products.urls')),
-    path("hello/<string:name>", test_view)
+    path("hello", test_view)
 ]
